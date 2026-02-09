@@ -1,0 +1,128 @@
+<section class="bg-gradient-to-b from-white to-slate-50">
+    
+    <!-- Hero Section -->
+    <div class="py-16 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Sobre Nosotros</h1>
+            <p class="text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed">
+                Somos tu tienda especializada en smartwatches, comprometidos con llevar la mejor tecnología 
+                wearable a tu muñeca desde 2020.
+            </p>
+        </div>
+    </div>
+
+    <!-- Misión y Visión -->
+    <div class="py-16 max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                    <span class="text-3xl">🎯</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Misión</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Democratizar el acceso a tecnología wearable de calidad, ayudando a nuestros clientes 
+                    a mejorar su salud, productividad y estilo de vida a través de smartwatches innovadores 
+                    y accesibles.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                    <span class="text-3xl">🚀</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">Nuestra Visión</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Ser la tienda líder en Latinoamérica de dispositivos wearables, reconocidos por nuestra 
+                    excelencia en servicio al cliente, variedad de productos premium y asesoría especializada 
+                    que transforma vidas.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="py-16 bg-gradient-to-r from-slate-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-slate-900 text-center mb-12">Nuestro Impacto</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                @for (stat of estadisticas; track stat.texto){
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <p class="text-4xl font-extrabold text-indigo-600 mb-2">{{stat.numero}}</p>
+                    <p class="text-sm text-slate-600 font-medium">{{stat.texto}}</p>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Valores -->
+    <div class="py-16 max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Nuestros Valores</h2>
+            <p class="text-lg text-slate-600">Lo que nos hace diferentes en el mercado</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            @for (valor of valores; track valor.titulo){
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div class="text-5xl mb-4">{{valor.icono}}</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">{{valor.titulo}}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{{valor.descripcion}}</p>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Equipo -->
+    <div class="py-16 bg-gradient-to-b from-white to-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Conoce a Nuestro Equipo</h2>
+                <p class="text-lg text-slate-600">Profesionales apasionados por la tecnología</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                @for (miembro of equipo; track miembro.nombre){
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="h-64 bg-gradient-to-br from-indigo-100 to-purple-100 relative overflow-hidden">
+                        <img [src]="miembro.imagen" [alt]="miembro.nombre" 
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">{{miembro.nombre}}</h3>
+                        <p class="text-indigo-600 font-semibold text-sm mb-3">{{miembro.cargo}}</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">{{miembro.descripcion}}</p>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Historia -->
+    <div class="py-16 max-w-6xl mx-auto px-4">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-6 text-center">Nuestra Historia</h2>
+            <div class="space-y-6 text-slate-600 leading-relaxed">
+                <p>
+                    <strong class="text-slate-900">En 2020</strong>, nació nuestra tienda con un sueño simple pero ambicioso: 
+                    hacer que los mejores smartwatches del mundo estuvieran al alcance de todos. Comenzamos en un pequeño 
+                    local con solo 3 modelos y mucha pasión.
+                </p>
+                <p>
+                    Hoy, cinco años después, nos enorgullece ser una de las tiendas especializadas más confiables 
+                    de la región, con <strong class="text-indigo-600">más de 50,000 clientes satisfechos</strong> y 
+                    una selección curada de las mejores marcas del mercado.
+                </p>
+                <p>
+                    Lo que comenzó como una pequeña tienda se ha convertido en una comunidad de entusiastas de la 
+                    tecnología wearable. Cada smartwatch que vendemos viene acompañado de asesoría personalizada, 
+                    garantía extendida y un compromiso genuino con la satisfacción de nuestros clientes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+</section>

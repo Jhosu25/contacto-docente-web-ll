@@ -4,11 +4,13 @@ import { Productos } from './shared/productos/productos';
 import { Pag404 } from './shared/pag-404/pag-404';
 import { Consultas } from './features/consultas/consultas';
 import { Articulos } from './shared/articulos/articulos';
+import { Acerca } from './features/acerca/acerca';
 
 export const routes: Routes = [
     //Ruta Inicial
     {path:'', component:Home},
     //Rutas de navegación
+    {path:'acerca',component:Acerca},
     {path:'productos', component:Productos},
     {path:'consultas', component:Consultas},
     {path:'tendencias', component:Articulos},
