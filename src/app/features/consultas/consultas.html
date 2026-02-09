@@ -1,0 +1,54 @@
+<section class="py-16 bg-gradient-to-b from-slate-50 to-white min-h-screen">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Controla tu día desde tu muñeca</h2>
+            <p class="mt-4 text-lg text-slate-600">Explora todas las funciones inteligentes de tu smartwatch</p>
+        </div>
+
+        <div class="max-w-2xl mx-auto mb-10 p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg shadow-sm">
+            <p class="font-medium text-indigo-700">{{mensajeAviso}}</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Panel de funciones -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300">
+                <div class="mb-6 pb-4 border-b-2 border-indigo-100">
+                    <h3 class="text-2xl font-bold text-slate-900">Funciones Destacadas</h3>
+                    <p class="text-sm text-slate-500 mt-1">Selecciona para conocer más detalles</p>
+                </div>
+                <ul class="space-y-3">
+                    @for (producto of products; track producto.id){
+                    <li (click)="verDetalles(producto)"
+                        class="flex justify-between items-center p-4 hover:bg-indigo-50 border border-slate-200 rounded-lg cursor-pointer transition-all duration-300 group hover:shadow-md hover:border-indigo-300">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full group-hover:scale-150 transition-transform"></div>
+                            <span class="text-slate-700 font-medium group-hover:text-indigo-700 transition-colors">{{producto.nombre}}</span>
+                        </div>
+                        <span class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full uppercase font-semibold group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            Explorar
+                        </span>
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Panel de información detallada -->
+            <div class="flex flex-col">
+                @if(productoSeleccionado){
+                    <app-detalle-producto
+                        [products]="productoSeleccionado"
+                        (notificarAccion)="procesarAviso($event)"
+                    ></app-detalle-producto>
+                }@else{
+                <div class="h-full bg-white border-2 border-dashed border-slate-300 rounded-2xl flex flex-col items-center justify-center p-10 text-slate-400 shadow-sm">
+                    <svg class="w-20 h-20 mb-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <p class="text-center text-slate-600 font-semibold text-lg">¿Qué puede hacer tu smartwatch?</p>
+                    <p class="text-center text-sm text-slate-400 mt-2">Selecciona una función para descubrir sus capacidades</p>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

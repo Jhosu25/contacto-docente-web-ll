@@ -1,0 +1,57 @@
+<div class="p-8 bg-gradient-to-b from-slate-50 to-white min-h-screen">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Favorito de los usuarios</h1>
+        <p class="text-slate-600 mb-6">Monitorea la demanda y stock de tus smartwatches</p>
+
+        <!--GRID para los smartwatches-->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @for (articulo of articulos; track articulo.nombre){
+            <div class="border border-slate-200 rounded-2xl shadow-sm bg-white hover:shadow-xl transition-all duration-300 overflow-hidden">
+                
+                <!-- Imagen del producto -->
+                <div class="relative h-48 bg-slate-100">
+                    <img [src]="articulo.imagen" [alt]="articulo.nombre" 
+                        class="w-full h-full object-cover">
+                </div>
+
+                <!-- Contenido de la tarjeta -->
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-xl font-bold text-slate-900">
+                            {{articulo.nombre}}
+                        </h3>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full font-semibold">
+                            {{articulo.especie}}
+                        </span>
+                    </div>
+                    
+                    <p class="text-sm mb-3 uppercase font-bold inline-block px-3 py-1 rounded-full"
+                        [ngClass]="{
+                            'bg-red-100 text-red-700':articulo.demanda==='alta',
+                            'bg-yellow-100 text-yellow-700':articulo.demanda==='media',
+                            'bg-green-100 text-green-700':articulo.demanda==='baja'
+                        }">
+                        🔥 Demanda: {{articulo.demanda}}</p>
+                    
+                    <div class="mb-3">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-slate-600 font-medium">Unidades vendidas</span>
+                            <span class="text-slate-900 font-bold">{{articulo.vendidos}}%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-3 rounded-full transition-all duration-500 shadow-sm"
+                            [ngStyle]="{'width':articulo.vendidos + '%' }">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-slate-100">
+                        <span class="text-xs text-slate-500 font-medium">
+                            📊 {{articulo.vendidos}}% del stock inicial vendido
+                        </span>
+                    </div>
+                </div>
+            </div>}
+        </div>
+    </div>
+</div>

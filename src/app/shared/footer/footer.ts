@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class Footer {
 
+  anio: number = new Date().getFullYear();
+
+  logoUrl:string="/images/icono.png";
+
+  enlaces = [
+    {nombre:'Home', link:'#'},
+    {nombre:'Acerca', link:'#'},
+    {nombre:'Productos', link:'#'},
+    {nombre:'Contacto', link:'#'},
+    {nombre:'Registro', link:'#'},
+  ];
+
 }

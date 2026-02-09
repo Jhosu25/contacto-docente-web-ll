@@ -1,0 +1,55 @@
+<div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6">
+        <h3 class="text-white font-bold text-xl">Información de la Función</h3>
+        <p class="text-indigo-100 text-sm mt-1">Conoce todos los detalles</p>
+    </div>
+
+    <div class="p-6 space-y-5">
+        <!-- Nombre de la función con ícono -->
+        <div class="flex items-start space-x-4">
+            <div class="bg-indigo-100 p-3 rounded-full flex-shrink-0">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Función</p>
+                <p class="text-2xl font-bold text-slate-900">{{products?.nombre}}</p>
+            </div>
+        </div>
+
+        <!-- Información técnica en grid -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <p class="text-xs text-slate-500 font-bold uppercase mb-1">Código</p>
+                <p class="font-mono text-slate-700 font-semibold">#F00{{products?.id}}</p>
+            </div>
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                <p class="text-xs text-slate-500 font-bold uppercase mb-1">Categoría</p>
+                <p class="text-slate-700 font-medium">{{products?.tipo}}</p>
+            </div>
+        </div>
+
+        <!-- Descripción del beneficio -->
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-lg border-l-4 border-indigo-500">
+            <div class="flex items-start space-x-2 mb-2">
+                <svg class="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path>
+                </svg>
+                <div class="flex-1">
+                    <p class="text-xs text-indigo-700 font-bold uppercase mb-1">¿Qué hace esta función?</p>
+                    <p class="text-sm text-slate-700 leading-relaxed">{{products?.historial}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón de acción -->
+        <button (click)="avisarIngreso()"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg flex items-center justify-center space-x-2">
+            <span>Activar en mi smartwatch</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+</div>
